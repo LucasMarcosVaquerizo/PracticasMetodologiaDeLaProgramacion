@@ -1,0 +1,74 @@
+
+@startuml
+'https://plantuml.com/class-diagram
+
+class RECT {
+-px
+-py
+-dx
+-dy
++onClick(x,y)
++onMove(x,y)
++Keypress(key)
++Draw_border(x,y,dx,dy)
++Draw_pick(x,y,dx,dy,pick)
++Draw_text(x,y,text)
++Draw_fill(x,y,dx,dy,colors)
+}
+class DoorManager{
++DoorList()
+}
+abstract class Door {
+-titulo:String
++Button()
++Bar()
+}
+class Secondary.Door1 {
++Weather
+}
+class Secondary.Door2 {
++CurrentTime
+}
+class Secondary.Door3 {
++Communications(text)
+}
+class Mouse {
+
+}
+class Keyboard {
+
+}
+class Buttons {
++ClickB(x,y)
++Close(Door)
++Open(Door)
++Pos(x,y,Door)
+}
+class SearchBar {
++ClickS(x,y)
++write(Key)
+}
+class Secondary.Door4 {
++Notes
+}
+abstract class widgets
+RECT<|- DoorManager
+Door--#DoorManager
+Door#-widgets
+
+RECT<--Mouse
+Keyboard-->RECT
+Usser-->Mouse: Use >
+Usser-->Keyboard: Use >
+RECT<|---Buttons
+RECT<|-SearchBar
+Buttons"Need"->Door
+SearchBar"Need"-->Door
+Secondary-->RECT
+Door1-|>Door
+Door2-|>Door
+Door3-|>Door
+Door4-|>Door
+SearchBar-|>widgets
+Buttons-|>widgets
+@enduml
